@@ -1,13 +1,15 @@
 class CustomersController < ApplicationController
+  
   def show
+  	@customer = Customer.find(params[:id])
   end
 
   def new
-  	@cusomter = Customer.new
+  	@customer = Customer.new
   end
 
   def edit
-  	
+  	  @customer = Customer.find(params[:id])
   end
 
   def create
@@ -19,7 +21,6 @@ class CustomersController < ApplicationController
   		render :new
   	end
   end
-
 
 private
 
