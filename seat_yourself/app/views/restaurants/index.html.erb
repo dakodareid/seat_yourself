@@ -1,4 +1,13 @@
 <h1>All Restaurants</h1>
 
-
 <p>List of all the resto's that you can choose from</p>
+
+<% @restaurants.each do |restaurant| %>
+	
+	<p><%= link_to restaurant.name, "/restaurants/#{restaurant.id}" %>
+	<br />
+	<textarea maxlength="50"><%= restaurant.description %></textarea>
+	</p>
+	<br />
+
+<% end %>
