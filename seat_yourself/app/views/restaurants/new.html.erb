@@ -1,2 +1,26 @@
-<h1>Restaurants#new</h1>
-<p>Find me in app/views/restaurants/new.html.erb</p>
+<h1>Add New Restaurant Profile</h1>
+
+
+<p>Add form to create new resto's profile</p>
+
+<%= form_for @restaurant do |f| %>
+	
+	<div class="field"> 
+		<%= f.label :name %><br />
+		<%= f.text_field :name %>
+	</div>
+
+	<div class="field"> 
+		<%= f.label :description %><br />
+		<%= f.text_field :description %>
+	</div>
+	<div class="field"> 
+		<%= f.label :number_of_seats %><br />
+		<%= f.text_field :seats %>
+	</div>
+
+	<div class="actions"><br />
+		<%= f.submit %>
+	</div>
+
+<% end %>
