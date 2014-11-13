@@ -23,8 +23,8 @@ class CustomersController < ApplicationController
   end
 
 private
-
 	def customer_params
-		params.require(:customer).permit(:name, :email)
+		params.require(:customer).permit(:name, :email, :password, :password_confirmation)
 	end
+
 end

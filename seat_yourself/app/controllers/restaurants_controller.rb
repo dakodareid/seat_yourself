@@ -35,6 +35,10 @@ class RestaurantsController < ApplicationController
         end
   end
 
+  # def space_available(datetime)
+
+  # end
+
 private
 
   def restaurant_params
