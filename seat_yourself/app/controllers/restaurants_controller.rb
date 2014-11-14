@@ -29,13 +29,13 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-        @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
 
-        if @restaurant.update_attributes(restaurant_params)
-          redirect_to restaurants_path(@restaurant)
-        else
-          render :edit
-        end
+    if @restaurant.update_attributes(restaurant_params)
+      redirect_to restaurants_path(@restaurant)
+    else
+      render :edit
+    end
   end
 
   # def space_available(datetime)
