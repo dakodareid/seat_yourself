@@ -15,8 +15,8 @@ class CustomersController < ApplicationController
   def create
   	@customer = Customer.new(customer_params)
 
-  	if @customer.save 
-  		redirect_to restaurants_path
+  	if @customer.save
+  		redirect_to restaurants_path, notice: "Signed up!"
   	else
   		render :new
   	end
@@ -24,7 +24,7 @@ class CustomersController < ApplicationController
 
 private
 	def customer_params
-		params.require(:customer).permit(:name, :email, :password, :password_confirmation)
+		params.require(:customer).permit(:email, :password, :password_confirmation)
 	end
 
 end

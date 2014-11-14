@@ -1,6 +1,17 @@
 <h1>Are you a new Owner? Sign up here!</h1>
 
 <%= form_for @owner do |f| %>
+	<% if @owner.errors.any? %>
+		<div class="error_messages">
+			<h2>Form is Invalid!</h2>
+				<ul>
+					<% for message in @owner.errors.full_messages %>
+						<li><%= message %></li>
+					<% end %>
+				</ul>
+		</div>
+	<% end %>
+	
 	<div>
 		<%= f.label :name %>
 		<%= f.text_field :name %>
