@@ -1,2 +1,23 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h1>Log In</h1>
+
+
+<%= form_tag sessions_path do %>
+  <div class="field">
+    <%= label_tag :email %><br>
+    <br>
+    <%= text_field_tag :email, params[:email] %>
+  </div>
+  <br>
+  <div class="field">
+    <%= label_tag :password %><br>
+    <br>
+    <%= password_field_tag :password %>
+  </div>
+  <br>
+  <div class="actions"><%= submit_tag "Log in" %></div>
+<% end %>
+
+<br>
+<%= link_to "Customer Sign Up", new_customer_url %> 
+<br><br>
+<%= link_to "Restaurant Owner Sign Up", new_owner_url %> 

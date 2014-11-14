@@ -8,14 +8,14 @@ class SessionsController < ApplicationController
   		session[:customer_id] = customer.id
   		redirect_to restaurants_url, :notice => "Logged in!"
   	else
-  		flash.now[:alert] = "Invalid email or passowrd"
+  		flash.now[:alert] = "Invalid email or password"
   		render "new"
   	end
   end
 
   def destroy
   	session[:customer_id] = nil
-  	redirect_to log_in_url, notice: "Logged out"
+  	redirect_to restaurants_url, notice: "Logged out"
   	#**************^log in************
   end
 end

@@ -1,4 +1,5 @@
 class OwnersController < ApplicationController
+  before_filter :ensure_logged_in, except: [:create, :new]
   def show
   	 @owner = Owner.find(params[:id])
   end

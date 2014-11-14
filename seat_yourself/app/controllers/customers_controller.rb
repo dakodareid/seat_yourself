@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  
+  before_filter :ensure_logged_in, except: [:create, :new]
   def show
   	@customer = Customer.find(params[:id])
   end

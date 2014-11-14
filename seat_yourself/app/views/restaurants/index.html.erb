@@ -14,3 +14,18 @@
 	<br />
 
 <% end %>
+
+<p>
+  <% if current_user %>
+    Logged in with <%= current_user.email %>.
+    <%= link_to "Log Out", sessions_destroy_url %>
+
+    
+  <% else %>
+    <%= link_to "Sign In", new_session_url %> or
+
+    <%= link_to "Customer Sign Up", new_customer_url %> 
+	<br><br>
+	<%= link_to "Restaurant Owner Sign Up", new_owner_url %> 
+  <% end %>
+</p>
