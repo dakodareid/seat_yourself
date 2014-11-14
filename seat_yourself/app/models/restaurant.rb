@@ -3,8 +3,8 @@ class Restaurant < ActiveRecord::Base
 	belongs_to :owners
 	has_many :customers, through: :reservations
 
-	def available? (start_time, seats)
-		reserved = reservations.where(:time => start_time).sum(party_size)
+	def available? (opening_time, seats)
+		reserved = reservations.where(:time => opening_time).sum(party_size)
 		party_size <= (capacity - reserved)
 
 	end

@@ -14,7 +14,12 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-  	@current_user ||= Customer.find(session[:customer_id]) if session[:customer_id]
+  	@current_user ||= if session[:customer_id]
+      Customer.find(session[:customer_id])
+    elsif session[:owner_id]
+      Owner.find(session[:owner_id])
+    # else case? 
+    end
   end
   helper_method :current_user
  
