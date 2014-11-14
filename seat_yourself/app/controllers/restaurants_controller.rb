@@ -1,5 +1,8 @@
 class RestaurantsController < ApplicationController
-  before_filter :ensure_logged_in, 
+  before_filter :ensure_logged_in
+
+  before_filter :can_create_restaurant, only: [:new, :create, :update]
+
   def index
     @restaurants = Restaurant.all
   end
@@ -43,6 +46,12 @@ private
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :description, :seats)
+  end
+
+  def can_create_restaurant
+    unless current_user.is_a?(Owner)
+      redirect_to restaurants_path, notice: "Can touch this. Duh nuh nuh."
+    end
   end
 
 end
