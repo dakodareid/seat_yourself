@@ -6,13 +6,25 @@ class Reservation < ActiveRecord::Base
 	validates :party_size,
 		inclusion: { in: 1..20, message: "We can only accommodate a maximum parties up to 20 people" }
 
-	validate  :in_future 
+	validate  :in_future, :restaurant_open
+
+	OPENING_HOUR = 10
+	CLOSING_HOUR = 22
+
+	# :availability 
 	#:on_the_hour
 	#:restaurant_open, :restaurant_not_full,
-  	def in_future
 
+	# private
+	def availability
+		unless restaurant.available?(party_size, reservation_time)
+			errors.add(:base, "Restaurant is full at this time")
+		end
+	end
+
+  	def in_future
     	dt = DateTime.new(reservation_date.year, reservation_date.month, reservation_date.day, 
-    		reservation_time.hour, reservation_time.min, reservation_time.sec)
+    		reservation_time.hour)
 
     	if dt < DateTime.now
       		errors.add(:datetime, "All reservations must be made for a future time")
@@ -20,6 +32,13 @@ class Reservation < ActiveRecord::Base
   	end
 
   	def restaurant_open
+		dt = DateTime.new(reservation_date.year, reservation_date.month, reservation_date.day, 
+    		reservation_time.hour)
 
+		if dt.hour < OPENING_HOUR || dt.hour > CLOSING_HOUR
+			errors.add(:reservation_time, "Reservation cannot be made outside restaurant hours: 10AM - 10PM Daily")
+		end
   	end
+
+
 end
