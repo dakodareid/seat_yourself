@@ -30,3 +30,6 @@
 	</div>
 	<div class="actions"><%= f.submit %></div>
 <% end %>
+
+ Logged in with <%= current_user.email %>.
+    <%= link_to "Log Out", sessions_destroy_url, method: :delete %>

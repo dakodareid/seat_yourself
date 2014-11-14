@@ -4,3 +4,6 @@
 <p>Add form to create new resto's profile</p>
 
 <%= render 'form' %>
+
+ Logged in with <%= current_user.email %>.
+    <%= link_to "Log Out", sessions_destroy_url, method: :delete %>

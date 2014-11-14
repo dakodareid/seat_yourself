@@ -10,3 +10,6 @@
 
 
 <%= link_to "Make a reservation", new_restaurant_reservation_path(@restaurant) %>
+
+ Logged in with <%= current_user.email %>.
+    <%= link_to "Log Out", sessions_destroy_url, method: :delete %>
