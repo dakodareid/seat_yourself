@@ -1,3 +1,36 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.form-signin {
+	max-width: 280px;
+	padding: 15px;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
+
+.form-control {
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	padding: 10;
+}
+
+  .fullscreen_bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url('http://s22.postimg.org/hqyda3gb5/seat_yourself_bg.jpg');
+    background-repeat:repeat;
+    z-index: -1;
+  }
+  
+.white-header {
+	color: white;
+}

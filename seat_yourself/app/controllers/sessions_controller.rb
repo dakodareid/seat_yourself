@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	# binding.pry
     user = Customer.find_by_email(params[:email]) || Owner.find_by_email(params[:email])
   	if user && user.authenticate(params[:password])
   		if user.is_a?(Customer)
